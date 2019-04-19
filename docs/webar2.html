@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <title>Demo 2</title>
+    <link rel="icon" href="favicon.ico">
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+	<script src='https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js'></script>
+	<script>
+		
+		AFRAME.registerComponent('main-marker', {
+			init: function () {
+				window.mainMarker = this.el;
+
+				this.el.addEventListener('changenum', function (event) {
+					debugger;
+					event.target.setAttribute("value", window.markNum);
+				});
+			}
+		});
+
+		
+		
+
+		updateAnimal = function(name, scale) {
+			window.scale = scale;
+			let marker = window.mainMarker;
+			let entity = marker.querySelector("a-entity");
+			marker.removeChild(entity);
+			entity = document.createElement('a-entity');
+          	marker.appendChild(entity);
+
+			entity.setAttribute("gltf-model", name);
+			entity.setAttribute("animation-mixer", "");
+			entity.setAttribute("scale", scale.toString() + " " + scale.toString() + " " + scale.toString());
+			entity.flushToDOM();
+		}
+
+	  
+
+	  onChangeAnimal = function(selector) {
+		  let animal = selector.value;
+		  switch(animal)
+		  {
+			  case "#croco":
+			  updateAnimal(animal, 1);
+			  break;
+			  case "#turtle":
+			  updateAnimal(animal, 3);
+			  break;
+		  };
+	  }
+	  onChangeMarkerNumber = function(selector) {
+		window.markNum = selector.value;
+		  	let number = selector.value;
+			let marker = window.mainMarker;
+			let p = marker.parentNode;
+			marker.setAttribute("value", number);
+			p.removeChild(marker);
+			p.appendChild(marker);
+	  }
+	</script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+	<div 
+	style='position: fixed; top: 0px; left: 0px; width:100%; z-index: 1;background-color: #ffffffaa'
+	
+	>
+	<h3 >Demo 2</h3>
+	Animal: <select onchange="onChangeAnimal(this)">
+		<option value="#turtle">turtle</option>
+		<option value="#croco">croco</option>
+	</select> - Marker: <select onchange="onChangeMarkerNumber(this)">
+		<option value=1>1</option>
+		<option value=2>2</option>
+		<option value=3>3</option>
+		<option value=4>4</option>
+		<option value=5>5</option>
+		<option value=6>6</option>
+		<option value=7>7</option>
+		<option value=8>8</option>
+		<option value=9>9</option>
+		<option value=10>10</option>
+		<option value=11>11</option>
+		<option value=12>12</option>
+	</select>
+
+	</div>
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4; debugUIEnabled: false;'>
+	
+		<a-assets>
+			<a-asset-item id="croco" src="https://raw.githubusercontent.com/taigama/WebARDemo1/master/assets/models/crocodile/scene.gltf"></a-asset-item>
+			<a-asset-item id="turtle" src="https://raw.githubusercontent.com/taigama/WebARDemo1/master/assets/models/turtle/scene.gltf"></a-asset-item>
+        </a-assets>
+	>
+		
+		<a-marker main-marker type='barcode' value='1'>
+			<a-entity
+			gltf-model="#turtle"
+			animation-mixer
+			position="0 0 0" rotation="0 45 0" scale="3 3 3" >
+			</a-entity>
+		</a-marker>
+
+        <!-- add a simple camera -->
+		<a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>

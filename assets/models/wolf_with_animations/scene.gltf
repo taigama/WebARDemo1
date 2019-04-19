@@ -14863,34 +14863,34 @@
   ],
   "images": [
     {
-      "uri": "textures/eyes_specularGlossiness.jpeg"
+      "uri": "eyes_specularGlossiness.jpeg"
     },
     {
-      "uri": "textures/eyes_emissive.jpeg"
+      "uri": "eyes_emissive.jpeg"
     },
     {
-      "uri": "textures/eyes_diffuse.jpeg"
+      "uri": "eyes_diffuse.jpeg"
     },
     {
-      "uri": "textures/Material__wolf_col_tga_diffuse.jpeg"
+      "uri": "Material__wolf_col_tga_diffuse.jpeg"
     },
     {
-      "uri": "textures/Material__wolf_col_tga_specularGlossiness.png"
+      "uri": "Material__wolf_col_tga_specularGlossiness.png"
     },
     {
-      "uri": "textures/Material__wolf_col_tga_occlusion.png"
+      "uri": "Material__wolf_col_tga_occlusion.png"
     },
     {
-      "uri": "textures/claws_diffuse.png"
+      "uri": "claws_diffuse.png"
     },
     {
-      "uri": "textures/fur__fella3_jpg_001_specularGlossiness.png"
+      "uri": "fur__fella3_jpg_001_specularGlossiness.png"
     },
     {
-      "uri": "textures/fur__fella3_jpg_001_diffuse.png"
+      "uri": "fur__fella3_jpg_001_diffuse.png"
     },
     {
-      "uri": "textures/fur__fella3_jpg_001_occlusion.png"
+      "uri": "fur__fella3_jpg_001_occlusion.png"
     }
   ],
   "materials": [
