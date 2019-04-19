@@ -10,11 +10,6 @@
 		AFRAME.registerComponent('main-marker', {
 			init: function () {
 				window.mainMarker = this.el;
-
-				this.el.addEventListener('changenum', function (event) {
-					debugger;
-					event.target.setAttribute("value", window.markNum);
-				});
 			}
 		});
 
