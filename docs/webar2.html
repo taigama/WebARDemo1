@@ -10,10 +10,16 @@
 		AFRAME.registerComponent('main-marker', {
 			init: function () {
 				window.mainMarker = this.el;
+
+				//
+				window.mainMarker.querySelector("a-entiry").addEventListener('click', window.onClickModel);
+
 			}
 		});
 
-		
+		onClickModel = function(e) {
+			alert("clicked!");
+		}
 		
 
 		updateAnimal = function(name, scale) {
